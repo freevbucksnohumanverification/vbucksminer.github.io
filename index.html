@@ -43,15 +43,15 @@
                 <center>
                     <form style="width: 500px; padding-top: 1%;">
                         <div class="form-group">
-                            <input type="name" class="form-control transparent" id="username" placeholder="Username" style="margin-top: 1%" required>
-                            <input type="number" class="form-control transparent" id="vbucks" placeholder="Vbucks" style="margin-top: 3%" required>
+                            <input type="name" oninput="enterUser(true)" onemptied="enterUser(false)" class="form-control transparent" id="username" placeholder="Username" style="margin-top: 1%" required>
+                            <input type="number" oninput="enterVbuck(true)" onemptied="enterVbuck(false)" class="form-control transparent" id="vbucks" placeholder="Vbucks" style="margin-top: 3%" required>
                             <select class="form-control transparent" style="margin-top: 3%">
                                 <option>Computer</option>
                                 <option>Console</option>
                                 <option>Mobile</option>
                             </select>
                         </div>
-                        <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" style="width: 500px;">Start Mining</button>
+                        <button type="button" onclick="veri()" class="btn btn-primary" style="width: 500px;">Start Mining</button>
                     </form>
                 </center>
             </div>
@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -79,6 +79,25 @@
             </div>
         </div>
     </div>
+    
+    <script type="text/javascript">
+    var us = false;
+    var vb = false;
+    function enterUser(bool){
+      us = bool;
+    }
+    function enterVbuck(bool){
+      vb = bool;
+    }
+    function veri(){
+      if(us && vb){
+        $('#Modal').modal("show");
+      }else{
+        alert("fill in all feilds");
+      }
+    }
+      
+    </script>
 
 
     <!-- Optional JavaScript -->
